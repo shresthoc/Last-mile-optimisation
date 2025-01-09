@@ -9,14 +9,14 @@ import os
 TOMTOM_API_KEY = os.getenv("TOMTOM_API_KEY")
 HERE_API_KEY = os.getenv("HERE_API_KEY") 
 
-st.set_page_config(page_title="FedEx Route Planner", page_icon="icon.png", layout="wide")
+st.set_page_config(page_title="FedEx Route Planner", page_icon="images/icon.png", layout="wide")
 
 if "stops" not in st.session_state:
     st.session_state.stops = []
 if "optimal_route" not in st.session_state:
     st.session_state.optimal_route = None
 
-st.logo("logo.svg",size="large")
+st.logo("images/logo.svg",size="large")
 
 # route calculation parameters for TOMTOM
 st.sidebar.header("Route Calculation Parameters")
