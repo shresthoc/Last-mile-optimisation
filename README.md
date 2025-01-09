@@ -31,7 +31,7 @@ features
 -------
 ![](https://github.com/1rvinn/FedExpedite/blob/main/images/Screenshot%202025-01-09%20at%2019.05.28.png?raw=true)
 
-> ###1. route optimiser
+> ### 1. route optimiser
 
 a. flexibility to choose
 + route type
@@ -56,7 +56,7 @@ d. route plan & stats
 e. gmaps integration
 f.  map visualisation
 ![]()
-> ###2. emission calculator
+> ### 2. emission calculator
 
 a. comprehensive input factors
 html
