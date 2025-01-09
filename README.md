@@ -1,11 +1,11 @@
 <p align="center">
   <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/FedExpedite.png?raw=true" alt="FedExpedite" />
 </p>
+
+#### python based route optimiser and emission calculator for FedEx.
 <p align="center">
   <img src="https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&color=blue" alt="Python" />
 </p>
-
-#### python based route optimiser and emission calculator for FedEx. optimise routes, minimise emissions & maximise efficiency!
 
 installation guide
 -------
