@@ -1,5 +1,5 @@
 # FedExpedite
-1. ensure that python, pip and git are installed
+1. ensure that python, pip and git are installed \n
 `sudo apt update && sudo apt-get install python3`
 `sudo apt-get install python3-pip`
 `sudo apt install git`
