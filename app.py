@@ -3,9 +3,11 @@ import itertools
 import streamlit as st
 import folium
 from streamlit_folium import st_folium
+from dotenv import load_dotenv
 import os
 
 # intitailising API keys
+load_dotenv()
 TOMTOM_API_KEY = os.getenv("TOMTOM_API_KEY")
 HERE_API_KEY = os.getenv("HERE_API_KEY") 
 
