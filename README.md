@@ -26,13 +26,13 @@ installation guide
 pipeline
 -------
 <p>
-	<img src="https://github.com/1rvinn/FedExpedite/blob/main/images/pipeline.png?raw=true!" alt="FedExpedite" width="700"/>
+	<img src="https://github.com/1rvinn/FedExpedite/blob/main/images/pipeline.png?raw=true!" alt="FedExpedite" width="600"/>
 </p>
 
 features
 -------
 <p>
-	<img src="https://github.com/1rvinn/FedExpedite/blob/main/images/Screenshot%202025-01-09%20at%2019.05.28.png?raw=true" alt="FedExpedite" width="700"/>
+	<img src="https://github.com/1rvinn/FedExpedite/blob/main/images/Screenshot%202025-01-09%20at%2019.05.28.png?raw=true" alt="FedExpedite" width="600"/>
 </p>
 
 ### 1. route optimiser
@@ -90,11 +90,11 @@ f.  map visualisation
 
 a. comprehensive input factors
 <p>
-  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-6.png?raw=true" alt="FedExpedite" width="175"/>
-  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-7.png?raw=true" alt="FedExpedite" width="175"/>
-  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-8.png?raw=true" alt="FedExpedite" width="175"/>
-  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-9.png?raw=true" alt="FedExpedite" width="175"/>
-  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-10.png?raw=true" alt="FedExpedite" width="175"/>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-6.png?raw=true" alt="FedExpedite" width="150"/>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-7.png?raw=true" alt="FedExpedite" width="150"/>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-8.png?raw=true" alt="FedExpedite" width="150"/>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-9.png?raw=true" alt="FedExpedite" width="150"/>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-10.png?raw=true" alt="FedExpedite" width="150"/>
 </p>
 
 b. reliable emissions data source
