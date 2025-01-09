@@ -18,3 +18,6 @@ installation guide
 8. run the app
 
         streamlit run app.py
+pipeline
+-------
+![](https://github.com/1rvinn/FedExpedite/blob/main/images/pipeline.png?raw=true![image])
