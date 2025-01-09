@@ -25,13 +25,28 @@ installation guide
         streamlit run app.py
 pipeline
 -------
-![](https://github.com/1rvinn/FedExpedite/blob/main/images/pipeline.png?raw=true![image])
+<p>
+	<img src="https://github.com/1rvinn/FedExpedite/blob/main/images/pipeline.png?raw=true!" alt="FedExpedite" width="700"/>
+</p>
 
 features
 -------
-![](https://github.com/1rvinn/FedExpedite/blob/main/images/Screenshot%202025-01-09%20at%2019.05.28.png?raw=true)
+<p>
+	<img src="https://github.com/1rvinn/FedExpedite/blob/main/images/Screenshot%202025-01-09%20at%2019.05.28.png?raw=true" alt="FedExpedite" width="700"/>
+</p>
 
-> ### 1. route optimiser
+### 1. route optimiser
+
+<table border="0">
+ <tr>
+    <td><b style="font-size:30px">Title</b></td>
+    <td><b style="font-size:30px">Title 2</b></td>
+ </tr>
+ <tr>
+    <td>Lorem ipsum ...</td>
+    <td>Lorem ipsum ...</td>
+ </tr>
+</table>
 
 a. flexibility to choose
 + route type
@@ -39,26 +54,48 @@ a. flexibility to choose
 	+ vehicle type
 	+ engine size
 	+ fuel type
-![]()
+<p>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-2.png?raw=true" alt="FedExpedite" width="200"/>
+</p>
+
 b. multi-input support
 + coordinate based
 + search based
-![]()
+<p>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-3.png?raw=true" alt="FedExpedite" width="200"/>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-4.png?raw=true" alt="FedExpedite" width="200"/>
+</p>
+
 c. user-friendly input
-+fixed starting pt
++ fixed starting pt
 + multiple stop support
 + choice to add a fixed ending pt
-![]()
+<p>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-5.png?raw=true" alt="FedExpedite" width="200"/>
+</p>
+
 d. route plan & stats
 + optimal sequence
 + total travel time
-+ estimated emissions
++ estimated emissions 
+
 e. gmaps integration
+
 f.  map visualisation
-![]()
-> ### 2. emission calculator
+<p>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-11.png?raw=true" alt="FedExpedite" width="500"/>
+</p>
+
+### 2. emission calculator
 
 a. comprehensive input factors
-html
-b. reliable data source
-+ uses data from [India GHG Program’s report on India-Specific Road Transport Emission Factors](uses data from India GHG Program’s report on India-Specific Road Transport Emission Factors "India-Specific Road Transport Emission Factors")
+<p>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-6.png?raw=true" alt="FedExpedite" width="175"/>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-7.png?raw=true" alt="FedExpedite" width="175"/>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-8.png?raw=true" alt="FedExpedite" width="175"/>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-9.png?raw=true" alt="FedExpedite" width="175"/>
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-10.png?raw=true" alt="FedExpedite" width="175"/>
+</p>
+
+b. reliable emissions data source
++ uses data from [India GHG Program’s report on India-Specific Road Transport Emission Factors](https://shaktifoundation.in/wp-content/uploads/2017/06/WRI-2015-India-Specific-Road-Transport-Emission-Factors.pdf "India GHG Program’s report on India-Specific Road Transport Emission Factors")
