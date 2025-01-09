@@ -3,10 +3,8 @@
 </p>
 <p align="center">
   <img src="https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&color=blue" alt="Python" />
-  <img src="https://img.shields.io/badge/Code-Bash-informational?style=flat&logo=gnu-bash&color=lightgrey" alt="Bash" />
-  <img src="https://img.shields.io/badge/Code-PowerShell-informational?style=flat&logo=powershell&color=blue" alt="PowerShell" />
 </p>
-
+"a python based route optimiser and emission calculator for FedEx. optimise routes, minimise emissions & maximise efficiency!"\
 installation guide
 -------
 1. ensure that python, pip and git are installed
