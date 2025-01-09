@@ -6,8 +6,8 @@ from streamlit_folium import st_folium
 import os
 
 # intitailising API keys
-TOMTOM_API_KEY = os.getenv("TOMTOM_API_KEY")
-HERE_API_KEY = os.getenv("HERE_API_KEY") 
+TOMTOM_API_KEY = "TOMTOM_API_KEY" # enter your TomTom API key here
+HERE_API_KEY = "HERE_API_KEY" # enter your HERE API key here
 
 st.set_page_config(page_title="FedEx Route Planner", page_icon="images/icon.png", layout="wide")
 
