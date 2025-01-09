@@ -37,7 +37,7 @@ features
 
 ### 1. route optimiser
 
-a. flexibility to choose
+#### a. flexibility to choose
 + route type
 + vehicle details
 	+ vehicle type
@@ -47,7 +47,7 @@ a. flexibility to choose
   <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-2.png?raw=true" alt="FedExpedite" width="200"/>
 </p>
 
-b. multi-input support
+#### b. multi-input support
 + coordinate based
 + search based
 <p>
@@ -55,7 +55,7 @@ b. multi-input support
   <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-4.png?raw=true" alt="FedExpedite" width="200"/>
 </p>
 
-c. user-friendly input
+#### c. user-friendly input
 + fixed starting pt
 + multiple stop support
 + choice to add a fixed ending pt
@@ -63,21 +63,21 @@ c. user-friendly input
   <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-5.png?raw=true" alt="FedExpedite" width="200"/>
 </p>
 
-d. route plan & stats
+#### d. route plan & stats
 + optimal sequence
 + total travel time
 + estimated emissions 
 
-e. gmaps integration
+#### e. gmaps integration
 
-f.  map visualisation
+#### f.  map visualisation
 <p>
   <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-11.png?raw=true" alt="FedExpedite" width="500"/>
 </p>
 
 ### 2. emission calculator
 
-a. comprehensive input factors
+#### a. comprehensive input factors
 <p>
   <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-6.png?raw=true" alt="FedExpedite" width="150"/>
   <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-7.png?raw=true" alt="FedExpedite" width="150"/>
@@ -86,5 +86,5 @@ a. comprehensive input factors
   <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/image-10.png?raw=true" alt="FedExpedite" width="150"/>
 </p>
 
-b. reliable emissions data source
+#### b. reliable emissions data source
 + uses data from [India GHG Program’s report on India-Specific Road Transport Emission Factors](https://shaktifoundation.in/wp-content/uploads/2017/06/WRI-2015-India-Specific-Road-Transport-Emission-Factors.pdf "India GHG Program’s report on India-Specific Road Transport Emission Factors")
