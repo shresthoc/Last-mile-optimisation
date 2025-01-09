@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&color=blue](https://github.com/1rvinn/FedExpedite/blob/main/images/fedexpedite.png?raw=true" alt="FedExpedite" />
+  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/fedexpedite.png?raw=true" alt="FedExpedite" />
 </p>
 <p align="center">
   <img src="https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&color=blue" alt="Python" />
