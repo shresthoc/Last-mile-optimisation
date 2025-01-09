@@ -1,5 +1,6 @@
 # FedExpedite
-> ## installation guide
+installation guide
+-------
 1. ensure that python, pip and git are installed
 
         sudo apt update && sudo apt-get install python3
