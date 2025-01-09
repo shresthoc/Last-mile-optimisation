@@ -1,8 +1,8 @@
 # FedExpedite
 1. ensure that python, pip and git are installed \
-    sudo apt update && sudo apt-get install python3
-    sudo apt-get install python3-pip
-    sudo apt install git
+        sudo apt update && sudo apt-get install python3
+            sudo apt-get install python3-pip
+                sudo apt install git
 2. clone the github repo & cd into it\
     git clone https://github.com/1rvinn/FedExpedit.git && cd FedExpedit
 3. install the required libraries\
