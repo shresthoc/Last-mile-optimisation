@@ -4,7 +4,8 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&color=blue" alt="Python" />
 </p>
-"a python based route optimiser and emission calculator for FedEx. optimise routes, minimise emissions & maximise efficiency!"\
+a python based route optimiser and emission calculator for FedEx. optimise routes, minimise emissions & maximise efficiency! \
+
 installation guide
 -------
 1. ensure that python, pip and git are installed
