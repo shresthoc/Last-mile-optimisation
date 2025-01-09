@@ -1,1 +1,6 @@
 streamlit
+folium
+itertools
+requests
+streamlit_folium
+os
