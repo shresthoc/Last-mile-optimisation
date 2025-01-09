@@ -3,11 +3,9 @@ import itertools
 import streamlit as st
 import folium
 from streamlit_folium import st_folium
-from dotenv import load_dotenv
 import os
 
 # intitailising API keys
-load_dotenv()
 TOMTOM_API_KEY = os.getenv("TOMTOM_API_KEY")
 HERE_API_KEY = os.getenv("HERE_API_KEY") 
 
@@ -160,7 +158,7 @@ st.sidebar.divider()
 
 # input mode
 st.sidebar.header("Plan Route")
-input_mode = st.sidebar.radio("Input Mode", ["Coordinates (Latitude, Longitude)", "Search for Destination"])
+input_mode = st.sidebar.radio("Input Mode", ["Coordinates", "Search for Destination"])
 
 # fetch coordinates using HERE API
 def fetch_coordinates(location_name):
@@ -227,7 +225,7 @@ if input_mode == "Coordinates":
     fixed_stop_name = "Ending Location"
     fixed_stop = st.sidebar.text_input("Ending Location (leave empty if flexible)", "e.g., 52.50931,13.42936")
 else:
-    fixed_stop_name = st.sidebar.text_input("Search Ending Location")
+    fixed_stop_name = st.sidebar.text_input("Search Ending Location (leave empty if flexible)")
     if fixed_stop_name:
         fixed_stop_coords = fetch_coordinates(fixed_stop_name)
         if fixed_stop_coords:
@@ -247,6 +245,18 @@ if st.session_state.stops:
 else:
     st.sidebar.write("No stops added yet.")
 
+# Function to map travel_mode to TomTom-compatible values
+def get_tomtom_travel_mode(travel_mode):
+    # Map your app's travel modes to TomTom's API-compatible values
+    mode_mapping = {
+        "Freight-vehicle": "truck",
+        "Car": "car",
+        "Three-wheeler": "car", 
+        "Two-wheeler": "motorcycle",
+        "Bicycle": "bicycle",
+        "Pedestrian": "pedestrian"
+    }
+    return mode_mapping.get(travel_mode, "car")  # Default to car if not found
 
 # Calculate route using TomTom API 
 def calculate_route_tomtom(start, stops, specific_end=None):
@@ -255,11 +265,12 @@ def calculate_route_tomtom(start, stops, specific_end=None):
     waypoints = ":".join(stops) if stops else ""
     route = f"{start}:{waypoints}:{specific_end}" if specific_end else f"{start}:{waypoints}"
     url = f"https://api.tomtom.com/routing/1/calculateRoute/{route}/json"
+    tomtom_travel_mode = get_tomtom_travel_mode(travel_mode)
     params = {
         "key": TOMTOM_API_KEY,
         "routeType": route_type,
         "traffic": traffic,
-        "travelMode": travel_mode,
+        "travelMode": tomtom_travel_mode
     }
     response = requests.get(url, params=params)
     if response.status_code == 200:
