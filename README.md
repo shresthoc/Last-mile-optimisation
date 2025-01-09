@@ -1,4 +1,12 @@
-# FedExpedite
+<p align="center">
+  <img src="https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&color=blue](https://github.com/1rvinn/FedExpedite/blob/main/images/fedexpedite.png?raw=true" alt="FedExpedite" />
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&color=blue" alt="Python" />
+  <img src="https://img.shields.io/badge/Code-Bash-informational?style=flat&logo=gnu-bash&color=lightgrey" alt="Bash" />
+  <img src="https://img.shields.io/badge/Code-PowerShell-informational?style=flat&logo=powershell&color=blue" alt="PowerShell" />
+</p>
+
 installation guide
 -------
 1. ensure that python, pip and git are installed
