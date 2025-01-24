@@ -448,14 +448,14 @@ if st.session_state.optimal_route:
         fixed_stop_name=fixed_stop_name
     )
     col1, col2 = st.columns([0.55,0.45], border=True)
-    col1.markdown("##### 🚦 Optimal Sequence:")
+    col1.markdown("##### \U0001F6A6 Optimal Sequence:")
     for idx, stop_name in enumerate(stop_names_in_order, start=1):
         col1.write(f"{idx}. {stop_name}")
     formatted_travel_time = format_travel_time(route_data['time'])
     total_emissions = calculate_emissions(route_data['distance'] / 1000, travel_mode, car_type, engine_size, fuel_type)
-    col2.markdown(f"##### ⏱️ Total Travel Time: {formatted_travel_time}")
-    col2.markdown(f"##### 🛣️ Total Distance: {route_data['distance'] / 1000:.2f} km")
-    col2.markdown(f"##### 🌍 Estimated Emissions: {total_emissions:.2f} kg CO₂")
+    col2.markdown(f"##### \U0001F552 Total Travel Time: {formatted_travel_time}")
+    col2.markdown(f"##### \U0001F6E3 Total Distance: {route_data['distance'] / 1000:.2f} km")
+    col2.markdown(f"##### \U0001F30F Estimated Emissions: {total_emissions:.2f} kg CO₂")
 
     google_maps_url = generate_google_maps_url(route_data["sequence"])
     #button for gmap link
