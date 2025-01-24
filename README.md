@@ -26,7 +26,7 @@ installation guide
 pipeline
 -------
 <p>
-	<img src="https://github.com/1rvinn/FedExpedite/blob/main/images/pipeline.png?raw=true!" alt="FedExpedite" width="600"/>
+	<img src="https://github.com/1rvinn/FedExpedite/blob/main/images/pipeline_final.png?raw=true!" alt="FedExpedite" width="600"/>
 </p>
 
 features
