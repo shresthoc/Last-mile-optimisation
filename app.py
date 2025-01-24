@@ -4,6 +4,7 @@ import streamlit as st
 import folium
 from streamlit_folium import st_folium
 import os
+import math
 
 # intitailising API keys
 TOMTOM_API_KEY = "TOMTOM_API_KEY" # enter your TomTom API key here
@@ -294,29 +295,73 @@ def calculate_route_tomtom(start, stops, specific_end=None):
         st.error(f"Error fetching route: {response.status_code} - {response.text}")
         return None, None, None
 
-# solving travelling salesman problem using TomTom API
-def solve_tsp_tomtom(start, stops, specific_end=None):
-    stop_coords = [stop["coordinates"] if isinstance(stop, dict) else stop for stop in stops]
-    permutations = list(itertools.permutations(stop_coords))
+# solving travelling salesman problem using TomTom API and heldkarp alg
+def solve_tsp_path_with_details(start, stops, fixed_stop=None):
+    all_locations = [start] + [stop["coordinates"] if isinstance(stop, dict) else stop for stop in stops]
+    if fixed_stop:
+        all_locations.append(fixed_stop)
+    n = len(all_locations)
 
-    if specific_end:
-        permutations = [perm + (specific_end,) for perm in permutations]
+    distance_matrix = [[0] * n for _ in range(n)]
+    time_matrix = [[0] * n for _ in range(n)]
+    route_geometries = [[[] for _ in range(n)] for _ in range(n)]
 
-    optimal_sequence = None
-    minimal_time = float("inf")
-    optimal_coordinates = None
-    optimal_distance = None
+    for i in range(n):
+        for j in range(n):
+            if i != j:
+                travel_time, distance, geometry = calculate_route_tomtom(all_locations[i], [all_locations[j]])
+                distance_matrix[i][j] = distance
+                time_matrix[i][j] = travel_time
+                route_geometries[i][j] = geometry
 
-    for perm in permutations:
-        sequence = [start] + list(perm)  
-        travel_time, total_distance, route_geometry = calculate_route_tomtom(start, list(perm), specific_end)
-        if travel_time and travel_time < minimal_time:
-            minimal_time = travel_time
-            optimal_sequence = sequence
-            optimal_coordinates = route_geometry
-            optimal_distance = total_distance
+    dp = [[math.inf] * n for _ in range(1 << n)]
+    dp[1][0] = 0
+    parent = [[-1] * n for _ in range(1 << n)]
 
-    return optimal_sequence, minimal_time, optimal_coordinates, optimal_distance
+    for mask in range(1 << n):
+        for i in range(n):
+            if mask & (1 << i):
+                for j in range(n):
+                    if not mask & (1 << j):
+                        next_mask = mask | (1 << j)
+                        new_cost = dp[mask][i] + distance_matrix[i][j]
+                        if new_cost < dp[next_mask][j]:
+                            dp[next_mask][j] = new_cost
+                            parent[next_mask][j] = i
+
+    min_cost = math.inf
+    last_city = -1
+    endpoint = n - 1 if fixed_stop else None
+
+    if fixed_stop:
+        min_cost = dp[(1 << n) - 1][endpoint]
+        last_city = endpoint
+    else:
+        for i in range(1, n):
+            if dp[(1 << n) - 1][i] < min_cost:
+                min_cost = dp[(1 << n) - 1][i]
+                last_city = i
+
+    mask = (1 << n) - 1
+    optimal_route = []
+    while last_city != -1:
+        optimal_route.append(last_city)
+        next_city = parent[mask][last_city]
+        mask ^= (1 << last_city)
+        last_city = next_city
+
+    optimal_route.reverse()
+    optimal_sequence = [all_locations[idx] for idx in optimal_route]
+
+    total_distance = 0
+    total_travel_time = 0
+    full_route_geometry = []
+    for i in range(len(optimal_route) - 1):
+        total_distance += distance_matrix[optimal_route[i]][optimal_route[i + 1]]
+        total_travel_time += time_matrix[optimal_route[i]][optimal_route[i + 1]]
+        full_route_geometry.extend(route_geometries[optimal_route[i]][optimal_route[i + 1]])
+
+    return optimal_sequence, total_distance, total_travel_time, full_route_geometry
 
 # Align stop names according to the generated optimal sequence
 def align_names_with_sequence(optimal_sequence, stops, start_location_name, fixed_stop_name):
@@ -327,9 +372,12 @@ def align_names_with_sequence(optimal_sequence, stops, start_location_name, fixe
         elif coord == fixed_stop:
             names_in_order.append(fixed_stop_name)  
         else:
-            matched_stop = next((stop["name"] for stop in stops if stop["coordinates"] == coord), None)
-            if matched_stop:
-                names_in_order.append(matched_stop)
+            if input_mode == "Coordinates":
+                names_in_order.append(coord)
+            else:
+                matched_stop = next((stop["name"] for stop in stops if stop["coordinates"] == coord), None)
+                if matched_stop:
+                    names_in_order.append(matched_stop)
     return names_in_order
 
 # generating gmaps url
@@ -364,20 +412,22 @@ def calculate_emissions(distance_km, travel_mode, car_type=None, engine_size=Non
         st.error("Emission factor not found for the selected options.")
         return 0.0
 
+
+
 if st.sidebar.button("Calculate Optimal Route", type="primary"):
     if not start_location:
         st.sidebar.error("Please provide a starting location.")
     elif not st.session_state.stops:
         st.sidebar.error("Please add at least one stop.")
     else:
-        optimal_sequence, travel_time, route_geometry, total_distance = solve_tsp_tomtom(
-            start=start_location, stops=st.session_state.stops, specific_end=fixed_stop_coords
+        optimal_sequence, total_distance, travel_time, route_geometry = solve_tsp_path_with_details(
+            start=start_location, stops=st.session_state.stops, fixed_stop=fixed_stop
         )
         if optimal_sequence:
             st.session_state.optimal_route = {
                 "sequence": optimal_sequence,
-                "time": travel_time,
                 "distance": total_distance,
+                "time": travel_time,
                 "coordinates": route_geometry,
             }
 
@@ -400,7 +450,7 @@ if st.session_state.optimal_route:
     col1, col2 = st.columns([0.55,0.45], border=True)
     col1.markdown("##### 🚦 Optimal Sequence:")
     for idx, stop_name in enumerate(stop_names_in_order, start=1):
-        col1.write(f"{idx}. {stop_name}") 
+        col1.write(f"{idx}. {stop_name}")
     formatted_travel_time = format_travel_time(route_data['time'])
     total_emissions = calculate_emissions(route_data['distance'] / 1000, travel_mode, car_type, engine_size, fuel_type)
     col2.markdown(f"##### ⏱️ Total Travel Time: {formatted_travel_time}")
@@ -451,3 +501,4 @@ if st.session_state.optimal_route:
         folium.Marker(location=[lat, lon], popup=label, icon=folium.Icon(color=icon_color)).add_to(route_map)
 
     st_folium(route_map, width=1000, height=560)
+
