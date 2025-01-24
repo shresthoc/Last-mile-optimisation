@@ -13,7 +13,7 @@ installation guide
         sudo apt install git
 4. clone the github repo & cd into it
 
-        git clone https://github.com/1rvinn/FedExpedite.git && cd FedExpedit
+        git clone https://github.com/1rvinn/FedExpedite.git && cd FedExpedite
 5. install the required libraries
 
         pip install -r requirements.txt
