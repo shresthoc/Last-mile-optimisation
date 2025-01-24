@@ -25,10 +25,6 @@ route_type = st.sidebar.selectbox(
     "Route Type",
     ["fastest", "shortest", "eco"]
 )
-traffic = st.sidebar.radio(
-    "Use Traffic Data",
-    ["true", "false"]
-)
 
 # emission data
 EMISSION_FACTORS = {
