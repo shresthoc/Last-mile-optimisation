@@ -64,7 +64,7 @@ features
 </p>
 
 #### d. route plan & stats
-+ optimal sequence
++ optimal sequence - uses the held karp method in dynamic programming to solve for the optimal route
 + total travel time
 + estimated emissions 
 
