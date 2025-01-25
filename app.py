@@ -21,10 +21,6 @@ st.logo("images/logo.svg",size="large")
 
 # route calculation parameters for TOMTOM
 st.sidebar.header("Route Calculation Parameters")
-route_type = st.sidebar.selectbox(
-    "Route Type",
-    ["fastest", "shortest", "eco"]
-)
 traffic = st.sidebar.radio(
     "Use Traffic Data",
     ["true", "false"]
@@ -269,7 +265,7 @@ def calculate_route_tomtom(start, stops, specific_end=None):
     tomtom_travel_mode = get_tomtom_travel_mode(travel_mode)
     params = {
         "key": TOMTOM_API_KEY,
-        "routeType": route_type,
+        "routeType": "fastest",
         "traffic": traffic,
         "travelMode": tomtom_travel_mode
     }
