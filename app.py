@@ -242,9 +242,7 @@ if st.session_state.stops:
 else:
     st.sidebar.write("No stops added yet.")
 
-# Function to map travel_mode to TomTom-compatible values
 def get_tomtom_travel_mode(travel_mode):
-    # Map your app's travel modes to TomTom's API-compatible values
     mode_mapping = {
         "Freight-vehicle": "truck",
         "Car": "car",
@@ -253,11 +251,10 @@ def get_tomtom_travel_mode(travel_mode):
         "Bicycle": "bicycle",
         "Pedestrian": "pedestrian"
     }
-    return mode_mapping.get(travel_mode, "car")  # Default to car if not found
+    return mode_mapping.get(travel_mode, "car")  # default to carr if not found
 
 # Calculate route using TomTom API 
 def calculate_route_tomtom(start, stops, specific_end=None):
-    # Extract coordinates from stop dictionaries
     stops = [stop["coordinates"] if isinstance(stop, dict) else stop for stop in stops]
     waypoints = ":".join(stops) if stops else ""
     route = f"{start}:{waypoints}:{specific_end}" if specific_end else f"{start}:{waypoints}"
@@ -453,8 +450,9 @@ if st.session_state.optimal_route:
     col2.markdown(f"##### \U0001F6E3 Total Distance: {route_data['distance'] / 1000:.2f} km")
     col2.markdown(f"##### \U0001F30F Estimated Emissions: {total_emissions:.2f} kg CO₂")
 
-    google_maps_url = generate_google_maps_url(route_data["sequence"])
     #button for gmap link
+    google_maps_url = generate_google_maps_url(route_data["sequence"])
+    
     st.markdown(
         f"""
         <a href="{google_maps_url}" target="_blank">
@@ -475,8 +473,7 @@ if st.session_state.optimal_route:
             </button>
         </a>
         """,
-        unsafe_allow_html=True
-    )
+        unsafe_allow_html=True)
 
     # map visualization
     route_map = folium.Map(location=[float(route_data["sequence"][0].split(",")[0]), float(route_data["sequence"][0].split(",")[1])], zoom_start=12)
