@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://github.com/1rvinn/FedExpedite/blob/main/images/FedExpedite.png?raw=true" alt="FedExpedite" />
-</p>
-
 #### a python based route optimiser and emission calculator for FedEx based on the held-karp algorithm
 
 installation guide
